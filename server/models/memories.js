@@ -12,7 +12,7 @@ const memeoriesShema = mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: new Data()
+        default: new Date()
     },
 });
 

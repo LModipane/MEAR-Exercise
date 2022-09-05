@@ -7,6 +7,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 import memoryRoutes from "./routes/memories.js"
+import notFound from "./middleware/notFound.js";
+import errorHandler from "./middleware/errorHandler.js"
 
 const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
 app.use("/memories", memoryRoutes);
+app.use(notFound);
+app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {

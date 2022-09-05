@@ -1,7 +1,7 @@
 import express from "express"
-import { getAllMemories } from "../controllers/memories.js";
+import { getAllMemories, createMemory } from "../controllers/memories.js";
 const router = express.Router();
 
-router.get("/", getAllMemories);
+router.route("/").get(getAllMemories).post(createMemory);
 
 export default router;
